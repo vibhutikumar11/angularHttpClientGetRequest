@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   showAllPost(){
-        this.http.get<DataResponse>('http://jsonplaceholder.typicode.com/posts').subscribe(data => {
+        this.http.get<DataResponse>('https://jsonplaceholder.typicode.com/posts').subscribe(data => {
           this.myData = data;
         },
         (err: HttpErrorResponse) => {
