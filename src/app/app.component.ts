@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 
+
 interface DataResponse {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
+  route:any;
 }
 
 @Component({
@@ -19,14 +17,13 @@ interface DataResponse {
 
 export class AppComponent implements OnInit {
   title = 'app';
-  myData : any;
-
 
   constructor(private http: HttpClient) {}
 
-  showAllPost(){
-        this.http.get<DataResponse>('https://jsonplaceholder.typicode.com/posts').subscribe(data => {
-          this.myData = data;
+
+  ngOnInit() { 
+    this.http.get<DataResponse>('https://api.railwayapi.com/v2/route/train/12566/apikey/xg6ymuliox/').subscribe(data => {
+         console.log(data);
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -36,10 +33,6 @@ export class AppComponent implements OnInit {
           }
         }
       );
-  }
-
-  ngOnInit() { 
-   
   }
 
 
