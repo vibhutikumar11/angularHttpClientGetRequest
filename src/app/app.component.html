@@ -1,0 +1,32 @@
+
+
+
+<p></p>
+<style>
+  table, td, th{
+    border:1px solid #ccc;
+  }
+</style>
+
+<table style="width:100%">
+  <tr>
+    <th>#</th>
+    <th>station Name</th>
+    <th>Arr</th>
+    <th>Dep</th>
+    <th>Halt</th>
+    <th>Dist</th>
+    <th>Day</th>
+    <th>PF</th>
+  </tr>
+  <tr *ngFor="let route of data.route; let i = index">
+    <td>{{i+1}}</td>
+    <td>{{route.station.name}}</td>
+    <td>{{route.scharr}}</td>
+    <td>{{route.schdep}}</td>
+    <td>{{route.halt}}</td>
+    <td>{{route.distance}}</td>
+    <td>{{route.day}}</td>
+    <td>{{route.no}}</td>
+  </tr>
+</table>
